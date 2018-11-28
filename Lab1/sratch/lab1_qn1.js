@@ -77,7 +77,7 @@ String.prototype.filterWords2 = function (wordsToRemove) {
 
 
 //Uncomment to test solution
-"the house is nice".filterWords2(banned2)
+//"the house is nice".filterWords2(banned2)
 //====================================================================================================================
 
 
@@ -115,7 +115,7 @@ String.prototype.filterWords4 = function (ban) {
         .subscribe((b) => { console.log(b) }, () => console.log("error"), null)
 }
 
-"the house is nice".filterWords4(banned4)
+//"the house is nice".filterWords4(banned4)
 
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
