@@ -1,0 +1,14 @@
+{
+  "name": "sratch",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "sratch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "deusdedit",
+  "license": "ISC",
+  "dependencies": {
+    "rxjs": "^6.3.3"
+  }
+}

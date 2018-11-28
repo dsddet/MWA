@@ -1,0 +1,15 @@
+{
+  "name": "ls1",
+  "version": "1.0.0",
+  "description": "lesson1",
+  "main": "scratch.js",
+  "dependencies": {
+    "rxjs": "^6.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "deusdedit",
+  "license": "ISC"
+}
