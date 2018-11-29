@@ -88,6 +88,7 @@ async function filter3(banned) {
     try {
         let answer = await filter2(banned, this)
         console.log(answer)
+        //return (answer)
         //console.log("this is working")
     }
     catch{
@@ -100,7 +101,7 @@ String.prototype.filterWords3 = filter3;
 
 
 //Uncomment to test solution
-//"the house is nice".filterWords3(banned3)
+console.log("the house is nice".filterWords3(banned3))
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 //Questien 1. Part four. Using Observable
