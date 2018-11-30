@@ -86,7 +86,7 @@ String.prototype.filterWords2 = function (wordsToRemove) {
 const banned3 = ["house", "nice"]
 async function filter3(banned) {
     try {
-        let answer = await filter2(banned, this)
+        let answer = await filter2(banned, this);
         console.log(answer)
         //return (answer)
         //console.log("this is working")
