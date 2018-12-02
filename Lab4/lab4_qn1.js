@@ -3,3 +3,4 @@ const urlstring = url.parse("http://localhost:4000/?url=path/to/my/file.txt",tru
 
 
 console.log(urlstring)
+
