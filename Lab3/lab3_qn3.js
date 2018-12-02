@@ -13,8 +13,6 @@ class Gym {
 }
 
 
-
-
 //Create an event handler:
 var myEventHandler = function () {
     console.log('Athlete working out');

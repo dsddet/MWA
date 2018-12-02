@@ -1,6 +1,24 @@
-const url = require('url');
-const urlstring = url.parse("http://localhost:4000/?url=path/to/my/file.txt",true);
+const fs = require("fs");
+const path = require("path");
+const { Subject } = require("rxjs");
+const http = require("http");
+const { fork } = require("child_process");
+
+const sub$ = new Subject();
+sub$.subscribe((x) => {
+    x.response.end(x.data);
+});
 
 
-console.log(urlstring)
 
+const server = http.createServer((request, response) => {
+    console.log(request.url)
+    response.setHeader('content-type', 'application/text');
+
+    const childprocess = fork(path.join(__dirname,'child.js'));
+    childprocess.send("read file");
+    childprocess.on("message", (x) => {
+        //response.pipe(x);
+        sub$.next({ response: response, data: x })
+    })
+}).listen(4000);

@@ -1,0 +1,24 @@
+Request-Param is a spring annotation that allows for automatic data binding of form elements or parameter values with the proceeding variable after the @Request-param annotation.
+
+public String getUser(@RequestParam("userName") String user)
+
+Gets the userName value of the form field and binds it to the user variable.
+
+
+@RequestMapping("/get/{user}/data")
+public String getData( @PathVariable("user") String user){
+
+return "someJSPPage";
+}
+
+Path variable extracts a sub-string from a URL and binds it to a variable. It is used to get resource requests contained in a request path url.
+for example, the relative url "get/deusdedit/data" would bind the variable user to string "deusdedit".
+
+
+The major components of the spring webflow are client, dispatcher Servlet, HandlerMapping,Controller, ViewResolver and viewEngine.
+
+1. The DispatcherServlet consults the HandlerMapping and invokes the Controller associated with the request.
+2. The Controller process the request by calling the appropriate service methods and returns a ModeAndView object to the DispatcherServlet. The ModeAndView object contains the model data and the view name.
+3. The DispatcherServlet sends the view name to a ViewResolver to find the actual View to invoke.
+4. Now the DispatcherServlet will pass the model object to the View to render the result.
+5. The View with the help of the model data will render the result back to the user.
