@@ -7,7 +7,7 @@ var app = express();
 app.set('x-powered-by', false);
 app.set('trust proxy', true);
 app.set('strict routing', true);
-app.set('case sensitive routing', true);s
+app.set('case sensitive routing', true);
 
 // Lab5 using promise
 app.get('/user', (req, res) => {
