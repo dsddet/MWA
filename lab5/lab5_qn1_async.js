@@ -4,6 +4,7 @@ var logger = require('morgan');
 var axios = require('axios');
 var app = express();
 
+
 app.set('x-powered-by', false);
 app.set('trust proxy', true);
 app.set('strict routing', true);
@@ -17,8 +18,9 @@ app.get('/user', (req, res) => {
         let answer;
         try {
             answer = await axios.get('https://randomuser.me/api/?results=10');
-            res.end(JSON.stringify(answer.data.results));
+            res.json(answer.data.results);
         }
+
         catch{
             console.log("errors");
         }

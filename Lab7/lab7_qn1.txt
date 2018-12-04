@@ -1,0 +1,16 @@
+The design for such a problem considering scalability is having 2 collections.
+
+1. Book Collection.
+{
+    _id:123,
+    IsbnNumber:xyz,
+    authors:[{author1:xyz},{author2:xyz},{author3:xyz}],
+    keywords:["abc","efg","xyz"]
+    }
+
+2. Student Collection.
+{
+    _id:123,
+    IsbnNumber:xyz,
+    returnDate:'12-18-18'
+}
