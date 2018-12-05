@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const jsonparser = express.json();
+var { check, validationResult } = require('express-validator/check');
 
 
 
@@ -16,7 +17,7 @@ function removeById(id) {
     this.forEach(element => {
         if (!(Number.parseInt(id) == element.id)) {
             answer.push(element);
-        } 
+        }
     });
 
     return answer;
@@ -24,16 +25,16 @@ function removeById(id) {
 Array.prototype.removeById = removeById;
 
 let grades = [{ id: 1, name: "Asaad Saad", course: "CS572", grade: 95 },
-    { id: 2, name: "Asaad Saad", course: "CS572", grade: 95 },
-    { id: 3, name: "Asaad Saad", course: "CS572", grade: 95 },
-    { id: 4, name: "Asaad Saad", course: "CS572", grade: 95 },
-    { id: 5, name: "Asaad Saad", course: "CS572", grade: 95 }];
+{ id: 2, name: "Asaad Saad", course: "CS572", grade: 95 },
+{ id: 3, name: "Asaad Saad", course: "CS572", grade: 95 },
+{ id: 4, name: "Asaad Saad", course: "CS572", grade: 95 },
+{ id: 5, name: "Asaad Saad", course: "CS572", grade: 95 }];
 
 app.get('/api/grades', (req, res) => {
     res.json(grades);
 });
 
-app.post('/api/grades', jsonparser,(req, res) => {
+app.post('/api/grades', jsonparser, (req, res) => {
     grades.push(req.body);
     res.json(grades);
 });

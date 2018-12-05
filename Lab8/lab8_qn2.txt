@@ -1,0 +1,17 @@
+1. Book Collection.
+
+{
+    _id:123,
+    IsbnNumber:xyz,
+    authors:[{author1:xyz},{author2:xyz},{author3:xyz}],
+    keywords:["abc","efg","xyz"]
+    }
+
+2. Student Collection.
+{
+    _id:123,
+    IsbnNumber:xyz,
+    returnDate:'12-18-18'
+}
+
+From the above design, I'd create indexes for authors and keywords fields in Book collection and index only IsbnNumber in student collection.

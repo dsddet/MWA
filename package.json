@@ -5,8 +5,11 @@
   "main": "scratch.js",
   "dependencies": {
     "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^4.16.4",
     "fetch": "^1.1.0",
+    "mongodb": "^3.1.10",
     "morgan": "^1.9.1",
     "rxjs": "^6.3.3"
   },
@@ -16,5 +19,4 @@
   },
   "author": "deusdedit",
   "license": "ISC"
-  
 }

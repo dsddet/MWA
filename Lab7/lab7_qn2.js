@@ -7,9 +7,9 @@ const mongoClient = require('mongodb').MongoClient;
 let app = express();
 app.listen(4000, () => console.log("Server running on 4000"));
 
-app.use(dbConnection);
+//app.use(dbConnection);
 
-app.get('/secret', (req, res) => {
+app.get('/secret', dbConnection, (req, res) => {
     res.set({ 'Content-Type': 'text/html' });
 
     answer = req.dbconn.

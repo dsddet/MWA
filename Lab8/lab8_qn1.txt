@@ -1,0 +1,69 @@
+1. Display all documents in the collecton restuarants
+ db.restuarants.find();
+
+2. Display specific fields. restuarant_id, name, district, cuisine.
+ db.restuarants.find({},{name:1,district:1,cuisine:1,restaurant_id:1,_id:0})
+
+3.  Display specific fields. restuarant_id, name, district, cuisine and exclude _id.
+ db.restuarants.find({},{name:1,district:1,cuisine:1,restaurant_id:1,_id:0})
+
+4. Display specific fields. restuarant_id,name,district, zipcode exclude _id;
+  db.restuarants.find({},{name:1,district:1,"address.zipcode":1,restuarant_id:1,_id:0})
+
+5. Display restuarants in Bronx.
+ db.restuarants.find({district:"Bronx"})
+
+6. Display first five restuarants in Bronx.
+ db.restuarants.find({district:"Bronx"}).limit(5)
+
+7. Display next five restuarants in Bronx after skipping first fivel
+ db.restuarants.find({district:"Bronx"}).skip(5).limit(5).
+
+8. Find restuarants with location cood less than -95.754168
+ db.restuarants.find({"address.coord":{$lt:-95.754168}})
+
+//Check with less than
+9. Find restuarants that does not prepare cuisine of American and grade score more than 70 and coord less than -65.754168.
+db.restuarants.find({cuisine:{$ne:"American "},"grades.score":{$gt:70},"address.coord":{$elemMatch:{$lt:-65.754168}}})
+
+10. Find restaurant_id,name, district and cuisine for restuarants start with Wil.
+db.restuarants.find({name:{$regex:'^Wil'}},{_id:0,name:1,restaurant_id:1,district:1,cuisine:1})
+ 
+11. Find the restaurant_id, name, district and cuisine for restuarants which contains 'ces' at the end.  
+ db.restuarants.find({name:{$regex:'ces$'}},{_id:0,name:1,restaurant_id:1,district:1,cuisine:1})
+
+ 12.Find the restaurant_id, name, district and cuisine for restuarants which contains 'Reg' in the middle.
+ db.restuarants.find({name:{$regex:'Reg'}},{_id:0,name:1,restaurant_id:1,district:1,cuisine:1})
+
+ 13. Find the restuarants which belong to district Bronx, cuisine is American or chinese.
+ db.restuarants.find({district:"Bronx",cuisine:{$in:["American","Chinese"]}})
+
+ 14. Find restuarant_id,name,district and cuisine for districts Straten Island, Queens or Bronx or Brooklyn.
+ db.restuarants.find({district:{$in:["Staten Island","Queens","Bronx","Brookly"]}},{_id:0,restaurant_id:1,name:1,district:1,cuisine:1})
+
+15. Find not in Staten Island, Queens, Bronx or Brookly.
+db.restuarants.find({district:{$not:{$in:["Staten Island","Queens","Bronx","Brooklyn"]}}},{_id:0,restaurant_id:1,name:1,district:1,cuisine:1})
+
+16. Find by score which is not more than 10.
+ db.restuarants.find({"grades.score":{$lt:10}})
+
+17. Find restuarant_id,name,address and geographical location where second coord array value is more than 42 and up to 52.
+db.restuarants.find({"address.coord":{$elemMatch:{$gt:42,$lte:52}}},{_id:0,restaurant_id:1,name:1,address:1,"address.coord":1})
+
+18. Arrange the name of restuarants in ascending order.
+ db.restuarants.find({},{_id:0,name:1}).sort({name:1})
+
+19. Arrange the name of restuarants in descending order.
+ db.restuarants.find({},{_id:0,name:1}).sort({name:-1})
+
+20. Arrange by cuisine by ascending order, then by district in descending order.
+db.restuarants.find({},{_id:0,district:1,name:1}).sort({name:1,district:-1})
+
+21. Check if al addresses contain the street or not.
+db.restuarants.find({"address.street":{$exists:false}})
+
+22. Find where coord field value is Double.
+db.restuarants.find({"address.coord":{$type:"double"}})
+
+23. Find the restuarant name, district, longitude and latitude and cuisine for restuarants with name contiaining 'Mad' as first three letters of its name.
+ db.restuarants.find({name:{$regex:'^Mad'}},{_id:0,name:1,"address.coord":1,district:1,cuisine:1})

@@ -13,9 +13,9 @@ sub$.subscribe((x) => {
 
 const server = http.createServer((request, response) => {
     console.log(request.url)
-    response.setHeader('content-type', 'application/text');
+    response.setHeader('content-type', 'text/html');
 
-    const childprocess = fork(path.join(__dirname,'child.js'));
+    const childprocess = fork(path.join(__dirname, 'child.js'));
     childprocess.send("read file");
     childprocess.on("message", (x) => {
         //response.pipe(x);
