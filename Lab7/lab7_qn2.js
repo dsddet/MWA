@@ -3,11 +3,15 @@ const crypto = require('crypto');
 const decipher = crypto.createDecipher('aes256', 'asaadsaad');
 const express = require('express');
 const mongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
+
 
 let app = express();
 app.listen(4000, () => console.log("Server running on 4000"));
 
 //app.use(dbConnection);
+
+
 
 app.get('/secret', dbConnection, (req, res) => {
     res.set({ 'Content-Type': 'text/html' });

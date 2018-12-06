@@ -16,4 +16,4 @@
 
 {"name":"Hidaway beer Garden and pub", "category":"Bars", "location":"[-91.962263, 41.008647]"}
 
-{"name":"Dairy Bar", "category":"Bars", "location":"[41.007580, -91.976081]"}
+{"name":"Dairy Bar", "category":"Bars", "location":"[-91.976081, 41.007580]"}

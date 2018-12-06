@@ -36,7 +36,7 @@ db.restuarants.find({name:{$regex:'^Wil'}},{_id:0,name:1,restaurant_id:1,distric
  db.restuarants.find({name:{$regex:'Reg'}},{_id:0,name:1,restaurant_id:1,district:1,cuisine:1})
 
  13. Find the restuarants which belong to district Bronx, cuisine is American or chinese.
- db.restuarants.find({district:"Bronx",cuisine:{$in:["American","Chinese"]}})
+ db.restuarants.find({district:"Bronx",cuisine:{$in:["American ","Chinese"]}})
 
  14. Find restuarant_id,name,district and cuisine for districts Straten Island, Queens or Bronx or Brooklyn.
  db.restuarants.find({district:{$in:["Staten Island","Queens","Bronx","Brookly"]}},{_id:0,restaurant_id:1,name:1,district:1,cuisine:1})
