@@ -1,32 +1,12 @@
-// const mongoClient = require('mongodb').MongoClient;
+/* all zip codes in Iowa states
+db.zipcodes.find({ state: { $eq: 'IA' } }, { _id: 1 });
 
-// const client = new mongoClient("mongodb://localhost:27017", { useNewUrlParser: true });
+all zip codes with a population more than 1000
+db.zipcodes.find({ pop: { $gt: 1000 } }, { _id: 1 })
 
-// client.connect(error => {
-//     if (error) { console.log(error); }
-    
-//     //const dataPromise = client.db('lab8').collection('restuarants').aggregate([{$group:{_id:"$district"}}]).toArray();
-//     const dataPromise = client.db('lab8').collection('restuarants').aggregate([{ $group: { _id: "$district" } }]).limit(1).toArray();
+all cities that have more than one zip code, sort the results based by state and city name
+db.smallzipcodes.aggregate([{ $group: { _id: { state: "$state", city: "$city" }, num_zip: { $sum: 1 } } }, { $sort: { "_id.state": 1, "_id.city": 1 } }])
 
-//     dataPromise.then(data => {
-//         console.log(data);
-//      });
-
-// })
- 
-
-// const mongoClient = require('mongodb').MongoClient;
-
-
-// mongoClient.connect("mongodb://localhost:27017", (error, conn) => {
-//     if (error) {
-//         console.log(error);
-//     } 
-
-    
-    
-//     conn.db('lab8').collection('restuarants').find({ "grades.score": 5 },{projection:{_id:0,name:1,"grades.score":1}}).limit(2).toArray().then(data => {
-//         console.log(data); 
-//     });
-
-// });
+the least populated city in each state
+db.smallzipcodes.aggregrate([{ $group: { _id: { city: "$city", state: "$state" }, pop: { $sum: "$pop" } } }, { $group: { _id: "$_id.state", pop: { $min: "$pop" } } }])
+*/
